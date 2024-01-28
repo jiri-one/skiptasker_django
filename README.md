@@ -9,5 +9,7 @@
 - [X] Add an admin interface.
 - [X] Define configuration in docker-compose.yml to run Django application and associated database in Docker containers.
 - [X] Write tests to ensure the functionality of the created API is correct.
-- [ ] Add short documentation on how to use the application.
+- [X] Add short documentation on how to use the application.
 - [X] Verify that it is possible to run the entire application using Docker.
+
+Documentation can be found in the files README_CZ.md and README_EN.md

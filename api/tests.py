@@ -113,6 +113,21 @@ class TaskModelTests(APITestCase):
 
         # this test solution is OK for showcase, but in production we will need care about sorting!
 
+    def test_get_one_task(self):
+        """Test if we can get one task from API with GET method"""
+        task = create_task(task_name=self.task_name, task_desc=self.task_desc)
+        check_this_id = task.id
+
+        response = self.client.get(f"/{check_this_id}/", format="json")
+        response_json = response.json()["task"]
+        returned_task_name, returned_task_desc = (
+            response_json["name"],
+            response_json["description"],
+        )
+        self.assertEqual(
+            (self.task_name, self.task_desc), (returned_task_name, returned_task_desc)
+        )
+
     def test_try_to_update_non_existed_task(self):
         # now update task
         response = self.client.put(
